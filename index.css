@@ -34,24 +34,37 @@ body {
     height: 70%;
     width: 90%;
     margin-left: 10px;
-}
-
-#userID:focus, #userPassword:focus, #userID, #userPassword {
+    z-index: 5;
     border: none;
 }
 
 .userInput {
     width: 80%;
     height: 40px;
-    margin: 5px;
+    margin: 4px;
     padding: 3px;
-    border: 1px solid var(--naver-color);
     background-color: white;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
 }
 
-#submit{
+.focusBorder {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid lightgray;
+    width: calc(35vw * 0.8 + 7px);
+    height: 48px;
+    margin-left: -4px;
+    z-index: 0;
+}
+
+.focused {
+    border: 1px solid var(--naver-color);
+}
+
+#submit {
     background-color: var(--naver-color);
     width: 100%;
     height: 100%;
@@ -60,7 +73,7 @@ body {
     font-size: 15px;
 }
 
-.option{
+.option {
     display: flex;
     width: calc(80% + 13px);
     height: 20px;
@@ -69,21 +82,21 @@ body {
     justify-content: space-between;
 }
 
-.stableContainer{
+.stableContainer {
     display: flex;
     align-items: center;
     margin: 5px 0;
     height: 100%;
 }
 
-#loginStable{
+#loginStable {
     width: 15px;
     height: 15px;
     border-radius: 50%;
     border: 2px solid gray;
 }
 
-form{
+form {
     width: 100%;
     display: flex;
     justify-content: center;

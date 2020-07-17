@@ -10,23 +10,48 @@
     <div id="naver">NAVER</div>
     <form>
         <div class="userInput">
-            <input type="text" placeholder="아이디" name="userID" id="userID"/>
+            <div class="focusBorder"></div>
+            <input type="text" placeholder="아이디" name="userID" id="userID" onfocus="focused(this)"
+                   onblur="blured()"/>
         </div>
         <div class="userInput">
-            <input type="password" placeholder="비밀번호" name="userPassword" id="userPassword"/>
+            <div class="focusBorder"></div>
+            <input type="password" placeholder="비밀번호" name="userPassword" id="userPassword" onfocus="focused(this)"
+                   onblur="blured()"/>
         </div>
         <div class="userInput" style="background-color: rgb(90, 196, 95)">
             <input type="submit" id="submit" value="로그인"/>
         </div>
         <div class="option">
             <div class="stableContainer">
-                <div id="loginStable"></div><div style="margin: auto 0 auto 5px;">로그인 상태 유지</div>
+                <div id="loginStable"></div>
+                <div style="margin: 1px 0 auto 5px;">로그인 상태 유지</div>
             </div>
-            <div>
+            <div style="margin-top: 6px;">
                 IP 보안 <b style="color: lightgray">OFF</b>
             </div>
         </div>
     </form>
 </div>
+<script>
+    const focused = (target) => {
+        const userInput = document.getElementsByClassName('userInput')
+        for (let selectedElement of userInput) {
+            const children = selectedElement.children
+            if (children[1] === target) {
+                children[0].classList.add('focused');
+            }
+        }
+    }
+
+    const blured = () => {
+        const userInput = document.getElementsByClassName('userInput')
+        for (let selectedElement of userInput) {
+            const children = selectedElement.children
+            children[0].classList.remove('focused');
+        }
+    }
+
+</script>
 </body>
 </html>
